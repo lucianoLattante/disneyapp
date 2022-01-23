@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Registrar nuevo usuario</title>
+</head>
+<body>
+
+    <div class="testbox" style="height: 310px;">
+      <h1>Inicio de sesión</h1>
+    
+      <form th:action="@{/auth/registrando}" method="POST" th:object="${user}">
+      <hr>
+          <label id="icon" for="name"><i class="icon-user"></i></label>
+          <input type="email" class="form-control" th:field="*{email}" id="name" placeholder="Email" required/>
+      <label id="icon" for="name"><i class="icon-user"></i></label>
+      <input type="text" class="form-control" th:field="*{username}" id="name" placeholder="Nombre de usuario" required/>
+      <label id="icon" for="name"><i class="icon-shield"></i></label>
+      <input type="password" class="form-control" th:field="*{password}" id="name" placeholder="Contraseña" required/>
+      <label id="icon" for="name"><i class="icon-shield"></i></label>
+      <input type="password" class="form-control" name="password2" id="name" placeholder="Repetir contraseña" required/>
+       <button type="submit" class="button">Registrarse</button>
+      </form>
+      <a id="inicio" href="/">Volver al inicio</a>
+    </div>
+    </body>
+</html>

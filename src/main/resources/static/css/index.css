@@ -1,0 +1,135 @@
+@font-face {
+    font-family: letra;
+    src: url(../font/waltographUI.ttf);
+}
+
+body{
+    background-image: url(../img/disneyreal.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav{
+    background-color: transparent;
+}
+
+h1,h2,h3,h4,h5,h6,p,nav{
+    font-family: letra;
+    font-size: 24px;
+}
+
+#boton1{
+    display: flex;
+    padding: 3px;
+    margin-left: 110%;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 30px;
+    color:white;
+}
+
+#boton1:hover,#boton2:hover{
+    color: black;
+    border: none;
+}
+
+#boton2{
+    display: flex;
+    padding: 3px;
+    margin-left: 20px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 30px;
+    color:white;
+}
+
+.linkdelnav{
+    display: flex;
+    padding: 3px;
+    text-decoration: none;
+    margin-left: 15px;
+    color: black;
+}
+
+.linkdelnav:hover{
+    text-decoration: none;
+    color: white;
+}
+
+#principal{
+    border: 1px black;
+    width: 50%;
+    float: left;
+    padding: 3px;
+}
+
+#principal h1{
+    font-family: letra;
+    color: black;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#secundaria{
+    border: 1px black;
+    width: 50%;
+    float: left;
+    padding: 3px;
+}
+
+#secundaria h1{
+    font-family: letra;
+    color: black;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.img-carousel{
+    width: 500px;
+}
+
+.ajustes{
+    margin-left: 15%;
+    width: 500px;
+}
+
+.verpersonajes{
+    display: flex;
+    margin-left: 30%;
+    margin-top: 50px;
+    text-decoration: none;
+    font-family: letra;
+    font-size: 32px;
+    color: springgreen;
+}
+
+.verpersonajes:hover{
+    color: darkmagenta;
+    text-decoration: none;
+}
+
+
+.verpersonajes:visited{
+    color: lightgray;
+}
+
+.verpeliculas{
+    display: flex;
+    margin-left: 25%;
+    margin-top: 50px;
+    text-decoration: none;
+    font-family: letra;
+    font-size: 32px;
+    color: springgreen;
+}
+
+.verpeliculas:hover{
+    color: darkmagenta;
+    text-decoration: none;
+}
+
+.verpeliculas:visited{
+    color: lightgray;
+}

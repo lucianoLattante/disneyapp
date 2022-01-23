@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/pelicula-serie.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Personajes</title> 
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <h1 style="color: black; border-color: white;border-radius: 3px;">Disney</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="active linkdelnav" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="active otrolinkxd" href="/movies/crear-peliculas">Crear peliculas</a>
+                </div>
+            </div>
+        </nav>
+
+        <form th:action="@{/movies/filtrar}">
+            <input type="text" name="titulo" placeholder="Inserte el titulo de la pelicula a buscar"/>
+            <br>
+            <label>Genero</label>
+            <br>
+            <select name="genre">
+                <option th:each="g : ${generos}" th:value="${g.id}" th:text="${g.nombre}"></option>
+            </select>
+            <br>
+            <label>Ordenar de forma ascendente o descendente</label>
+            <br>
+            <select name="order">
+                <option value="asc">asc</option>
+                <option value="desc">desc</option>
+            </select>
+
+            <button type="submit">Buscar</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Fecha de creacion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${peliculasList}">
+                    <td><img img th:src="${'/foto/pelicula?id='+ p.id}" /></td>
+                    <td th:text="${p.titulo}"></td>
+                    <td th:text="${#dates.format(p.fechaDeCreacion, 'dd/MM/yyyy')}"></td>
+                    <td>
+
+                        <a type="button" class="btn btn-primary" th:href="@{/movies/detalles}+'?id='+${p.id}">Ver detalles</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

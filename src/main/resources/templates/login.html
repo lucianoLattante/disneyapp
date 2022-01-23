@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+    
+    <title>Iniciar sesion</title>
+</head>
+<body>
+
+<div class="testbox">
+  <h1>Inicio de sesión</h1>
+
+  <form th:action="@{/auth/login}">
+  <hr>
+  <label id="icon" for="name"><i class="icon-user"></i></label>
+  <input type="text" name="name" id="name" placeholder="Username" required/>
+  <label id="icon" for="name"><i class="icon-shield"></i></label>
+  <input type="password" name="name" id="name" placeholder="Password" required/>
+   <button type="submit" class="button">Iniciar sesion</button>
+  </form>
+  <i id="fin">No tienes cuenta? <a id="dentro" href="/auth/register">Registrate ya</a></i>
+  <a id="inicio" href="/">Volver al inicio</a>
+</div>
+</body>
+</html>

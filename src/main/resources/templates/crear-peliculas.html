@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/pelicula-serie.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Crear peliculas o series</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <h1 style="color: black; border-color: white;border-radius: 3px;">Disney</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="active linkdelnav" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="active otrolinkxd" href="/crear-generos">Crear genero</a>
+        </div>
+    </div>
+</nav>
+
+<div class="testbox">
+
+    <form method="POST" th:object="${pelicula}" th:action="@{/movies/postpeliculas}"
+          enctype="multipart/form-data">
+        <label>Imagen </label>
+        <br>
+        <input type="file" name="imagen"/>
+
+        <br>
+
+        <label>Nombre</label>
+        <br>
+        <input type="text" th:field="*{titulo}" placeholder="Inserte el titulo de la pelicula o serie"/>
+
+        <br>
+
+        <label>Calificacion</label>
+        <br>
+        <input type="number" th:field="*{calificacion}"/>
+
+        <br>
+
+        <label>Historia</label>
+        <br>
+        <input type="date" th:field="*{fechaDeCreacion}" placeholder="Ingrese la historia del personaje">
+
+        <br>
+
+        <label>Personajes</label>
+        <br>
+        <input type="checkbox" th:each="p : ${personajes}" th:field="*{personajesList}" th:text="${p.nombre}"
+               th:value="${{p}}"/>
+
+        <br>
+        <label>Genero</label>
+        <br>
+        <select th:field="*{genero}">
+            <option th:each="g : ${generos}" th:text="${g.nombre}" th:value="${g.id}">
+
+            </option>
+        </select>
+
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
