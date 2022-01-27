@@ -14,6 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -61,6 +62,10 @@ public class UserService implements UserDetailsService{
         }
 
         user.setRol(Rol.USER);
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        user.setPassword(encoder.encode(user.getPassword()));
 
         mailService.enviarMail(user.getEmail(),"Registro","Muchas gracias por registrarte en la aplicacion de disney "+user.getUsername()+"! Se viene una experiencia inolvidable para vos!");
         
