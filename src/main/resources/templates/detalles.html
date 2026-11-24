@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,8 +47,11 @@
 </div>
 
 <div class="almedio">
-    <a type="button" class="btn btn-primary" th:href="@{/characters/editar-personaje}+'?id='+${personaje.id}">Editar personaje</a>
-    <a type="button" class="btn btn-warning" th:href="@{/characters/eliminar-personaje}+'?id='+${personaje.id}">Eliminar personaje</a>
+    <a type="button" class="btn btn-primary" sec:authorize="hasRole('ADMIN')" th:href="@{/characters/editar-personaje}+'?id='+${personaje.id}">Editar personaje</a>
+    <form method="post" sec:authorize="hasRole('ADMIN')" th:action="@{/characters/eliminar-personaje}">
+        <input type="hidden" name="id" th:value="${personaje.id}">
+        <button type="submit" class="btn btn-warning">Eliminar personaje</button>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

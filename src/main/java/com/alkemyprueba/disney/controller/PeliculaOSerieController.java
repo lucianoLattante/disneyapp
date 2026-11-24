@@ -86,7 +86,7 @@ public class PeliculaOSerieController {
         return "detalles2";
     }
 
-    @GetMapping("/eliminar-pelicula")
+    @PostMapping("/eliminar-pelicula")
     public String eliminar(@RequestParam(required = true) String id, RedirectAttributes redirectAttributes){
         peliculaOSerieService.eliminar(id);
         return "redirect:/movies";

@@ -59,7 +59,7 @@ public class PersonajeController {
         return "detalles";
     }
 
-    @GetMapping("/eliminar-personaje")
+    @PostMapping("/eliminar-personaje")
     public String eliminar(@RequestParam(required = true) String id, RedirectAttributes redirectAttributes){
         personajeService.eliminar(id);
         return "redirect:/characters";
